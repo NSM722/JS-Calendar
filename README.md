@@ -1,1 +1,1 @@
-Vanilla JavaScript Calendar
+# Vanilla JavaScript and CSS Calendar
