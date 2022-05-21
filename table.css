@@ -1,0 +1,30 @@
+caption {
+  font-weight: bold;
+  font-size: 40px;
+  padding: 10px;
+}
+
+table { 
+  margin: auto;
+  width: 100%;
+  max-width: 700px;
+}
+
+table, td, th {
+  border-collapse: collapse;
+  border: 2px groove #ccc;
+  padding: 27px;
+}
+
+td, th {
+  padding: 40px;
+}
+
+td { 
+  text-align: center;
+  font-size: 25px;
+}
+
+tr:nth-child(odd) {
+  background: coral;
+}
