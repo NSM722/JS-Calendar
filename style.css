@@ -1,0 +1,21 @@
+:root {
+  --gray-shade1: #B2B2B2;
+  --blue-shade1: #93B4FF;
+  --black-shade1:#2B2B2B;
+}
+
+body {margin: 0;}
+
+table {
+  width: 100%;
+  max-width: 700px;
+  margin: auto;
+
+}
+
+table, td, th {
+  border-collapse: collapse;
+  border: 1px solid var(--black-shade1);
+}
+
+th {padding: 40px;}
