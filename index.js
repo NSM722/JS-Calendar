@@ -1,30 +1,27 @@
-const container = document.createElement("div");
-container.setAttribute("class", "container");
-const table = document.createElement("table");
+import { getDayName } from "./date.js";
 
-const rows = 6;
-const cols = 7;
+const calendar = document.querySelector(".container");
 
-for (let i = 0; i < rows; i++) {
-  const tableRow = document.createElement("tr");
-  table.append(tableRow);
-  let day = 1
-  for (let j = 0; j < cols; j++) {
-    let tableCol = document.createElement("td");
-    tableCol.textContent = day;
-    tableRow.append(tableCol);
-    day++;
+const months = ["January","February","March","April","May","June","July",
+"August","September","October","November","December"];
+
+/*let randomDate = new Date(2022, 4);
+let currentMonth = months[randomDate.getMonth()];
+
+const title = document.createElement("h1");
+title.textContent = `${currentMonth} 2022`;*/
+
+for(let day = 1; day <= 31; day++) {
+
+  const dayName = getDayName(day);
+
+  //Show the day's name only for the first 7 days
+  let name = "";
+  if(day <= 7) {
+    const dayName = getDayName(day);
+    name = `<div class="name">${dayName}</div>`
   }
+
+  calendar.insertAdjacentHTML("beforeend",
+  `<div class="day">${name} ${day}</div>`);
 }
-
-
-container.append(table);
-document.body.append(container);
-
-const nextButton = document.createElement("a");
-nextButton.setAttribute("id", "next");
-nextButton.textContent = "Next"
-nextButton.setAttribute("href", "https://www.facebook.com");
-document.body.append(nextButton);
-
-
