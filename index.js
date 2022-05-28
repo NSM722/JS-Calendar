@@ -1,24 +1,30 @@
-// Create container variable for holding the table and added a class to it
 const container = document.createElement("div");
 container.setAttribute("class", "container");
-document.body.append(container);
+const table = document.createElement("table");
 
-// Table Variable
-const Table = document.createElement("table");
-container.append(Table);
+const rows = 6;
+const cols = 7;
 
-// Table Caption variable
-const tableCaption = document.createElement("caption");
-tableCaption.textContent = "May 2022";
-Table.append(tableCaption);
-
-// Table headers, rows and columns
-let days = ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun']
-
-for(let i = 0; i < days.length; i++) {
-  const tableHeaders = document.createElement("th")
-  Table.append(tableHeaders);
+for (let i = 0; i < rows; i++) {
+  const tableRow = document.createElement("tr");
+  table.append(tableRow);
+  let day = 1
+  for (let j = 0; j < cols; j++) {
+    let tableCol = document.createElement("td");
+    tableCol.textContent = day;
+    tableRow.append(tableCol);
+    day++;
+  }
 }
 
+
+container.append(table);
+document.body.append(container);
+
+const nextButton = document.createElement("a");
+nextButton.setAttribute("id", "next");
+nextButton.textContent = "Next"
+nextButton.setAttribute("href", "https://www.facebook.com");
+document.body.append(nextButton);
 
 

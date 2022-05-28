@@ -2,20 +2,43 @@
   --gray-shade1: #B2B2B2;
   --blue-shade1: #93B4FF;
   --black-shade1:#2B2B2B;
+  --white-shade1: rgb(241, 234, 234);
 }
 
-body {margin: 0;}
+body {
+  padding: 10px;
+}
 
 table {
   width: 100%;
-  max-width: 700px;
+  max-width: 400px;
   margin: auto;
+  height: 60%;
+  padding: 5px;
 
 }
 
 table, td, th {
   border-collapse: collapse;
   border: 1px solid var(--black-shade1);
+  padding: 40px;
+
 }
 
 th {padding: 40px;}
+
+.container {position: relative;}
+
+#next {
+  text-decoration: none;
+  display: inline-block;
+  margin: 5px;
+  padding: 8px 25px;
+  background-color: var(--black-shade1);
+  position: absolute;
+  left: 80%;
+  bottom: 0%;
+  color: var(--white-shade1);
+  border-radius: 5%;
+  
+}
