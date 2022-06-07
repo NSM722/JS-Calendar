@@ -10,9 +10,10 @@ let events = localStorage.getItem('events') ? JSON.parse(localStorage.getItem('e
 // Calendar reference
 const calendar = document.getElementById('calendar');
 
+// Days listed under the format "en-GB"
 const weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun',];
 
-// load function - this function runs when the document loads & then displays the calender
+// load function - this function runs when the document loads & then displays the calendar
 export function loadCalendar () {
   // create date object
   const date = new Date();
@@ -28,6 +29,7 @@ export function loadCalendar () {
   const year = date.getFullYear();
   console.log(day, month, year)
 
+  // gets the first day of the month
   const firstDayOfMonth = new Date(year, month, 1)
 
   // find the number of days in the month in order to load the right amount of squares on the document
@@ -36,6 +38,8 @@ export function loadCalendar () {
   //console.log(daysInMonth);
 
   const options = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' };
+
+  // toLocaleString converts the date object to a string to enable operations on lines 49 to 52
   const dateString = firstDayOfMonth.toLocaleDateString('en-GB', options);
 
   // Visualizing the date string in order to understand how to 
@@ -81,7 +85,8 @@ export function loadCalendar () {
   }
 }
 
-// event listeners for the back and next buttons
+// event listeners for the previous and next buttons
+// initButtons() = function to initialize the buttons event listeners
 // the buttons increment or decrement the monthCounter variable and then call the load Calendar function
 export function initButtons() {
   document.getElementById('nextButton').addEventListener('click', () => {
@@ -89,7 +94,7 @@ export function initButtons() {
     loadCalendar();
   });
 
-  document.getElementById('backButton').addEventListener('click', () => {
+  document.getElementById('previousButton').addEventListener('click', () => {
     monthCounter--;
     loadCalendar();
   });
