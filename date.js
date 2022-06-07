@@ -21,7 +21,8 @@ export function loadCalendar () {
 
   if (monthCounter !== 0) {
     // add/subtract monthCounter to the value of the current month when the next button is clicked
-    date.setMonth(new Date().getMonth() + monthCounter);
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setMonth#description
+    date.setMonth(new Date().getMonth() + monthCounter, 1);
   }
 
   const day = date.getDate();
