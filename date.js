@@ -1,5 +1,5 @@
 // Keeps track of the month
-let nav  = 0;
+let monthCounter  = 0;
 
 // day clicked on
 let clicked = null;
@@ -18,9 +18,9 @@ export function loadCalendar () {
   const date = new Date();
   // console.log(date);
 
-  if (nav !== 0) {
-    // add/subtract nav to the value of the current month when the next button is clicked
-    date.setMonth(new Date().getMonth() + nav);
+  if (monthCounter !== 0) {
+    // add/subtract monthCounter to the value of the current month when the next button is clicked
+    date.setMonth(new Date().getMonth() + monthCounter);
   }
 
   const day = date.getDate();
@@ -82,15 +82,15 @@ export function loadCalendar () {
 }
 
 // event listeners for the back and next buttons
-// the buttons increment or decrement the nav variable and then call the load Calendar function
+// the buttons increment or decrement the monthCounter variable and then call the load Calendar function
 export function initButtons() {
   document.getElementById('nextButton').addEventListener('click', () => {
-    nav++;
+    monthCounter++;
     loadCalendar();
   });
 
   document.getElementById('backButton').addEventListener('click', () => {
-    nav--;
+    monthCounter--;
     loadCalendar();
   });
 }
