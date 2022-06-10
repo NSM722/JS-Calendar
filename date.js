@@ -1,11 +1,7 @@
-// Keeps track of the month
-let monthCounter  = 0;
+import { openModal } from "./modals.js";
 
-// day clicked on
-let clicked = null;
-
-// array of event objects - the array is manipulated depenging on the user adding or deleting events
-let events = localStorage.getItem('events') ? JSON.parse(localStorage.getItem('events')) : [];
+// Global variable that keeps track of the month upon clicking the previous and back button
+globalThis.monthCounter  = 0;
 
 // Calendar reference
 const calendar = document.getElementById('calendar');
@@ -21,6 +17,7 @@ export function loadCalendar () {
 
   if (monthCounter !== 0) {
     // add/subtract monthCounter to the value of the current month when the next button is clicked
+    // Below link explains about the second paramenter(1) in the setMonth method
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setMonth#description
     date.setMonth(new Date().getMonth() + monthCounter, 1);
   }
@@ -69,14 +66,30 @@ export function loadCalendar () {
     // This particular day class makes the current month days conspicuous from the padding days 
     daySquare.classList.add('day');
 
+    const clickedDateString = `${i - paddingDays}/${month + 1}/${year}`
+
     // Logic that determines whether we render a padding day or day square
     if(i > paddingDays) {
-      // setting the day number value to the div
+      // setting the day number value to the inside of the div
       // this number value is rendered in the day square
       daySquare.innerText = i - paddingDays;
 
+      const eventForDay = events.find(event => event.clickedDate === clickedDateString);
+
+      if (i - paddingDays === day && monthCounter === 0) {
+        //add a class to the present day making it conspicuous from the rest of the days
+        daySquare.id = 'currentDay';
+      }
+      //if there's an event create a div to hold the event text inside the day square
+      if (eventForDay) {
+        const eventDiv = document.createElement('div');
+        eventDiv.classList.add('event');
+        eventDiv.innerText = eventForDay.title;
+        daySquare.appendChild(eventDiv);
+      }
+      
       // Event function that runs whenever the user clicks on the day square
-      daySquare.addEventListener('click', () => console.log('click'))
+      daySquare.addEventListener('click', () => openModal(clickedDateString));
     } else {
       // this class is less conspicuous than the day class since it's meant for actual padding days
       daySquare.classList.add('padding');
@@ -85,32 +98,3 @@ export function loadCalendar () {
     calendar.appendChild(daySquare);
   }
 }
-
-// event listeners for the previous and next buttons
-// initButtons() = function to initialize the buttons event listeners
-// the buttons increment or decrement the monthCounter variable and then call the load Calendar function
-export function initButtons() {
-  document.getElementById('nextButton').addEventListener('click', () => {
-    monthCounter++;
-    loadCalendar();
-  });
-
-  document.getElementById('previousButton').addEventListener('click', () => {
-    monthCounter--;
-    loadCalendar();
-  });
-}
-
-
-/*export const getDayName = day => {
-  //Date object & Date.UTC
-  const date = new Date(2022, 7, day);
-  
-  const options = { weekday: "short" };*/
-  
-  // Intl.DateTimeFormat
-  /*const dayName = newIntl.DateTimeFormat("en-GB",
-  options).format(date);*/
-  /*return new Intl.DateTimeFormat("en-GB",
-  options).format(date);
-}*/
