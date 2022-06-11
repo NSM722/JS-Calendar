@@ -1,7 +1,12 @@
+@import "./styles/buttons.css";
+@import "./styles/events.css";
+@import "./styles/api.css";
+
 :root {
   --black: black;
   --white: white;
   --red: red;
+  --dark-red: rgb(138, 9, 9);
   --white-smoke: whitesmoke;
   --caramel: rgba(255, 132, 0, 0.868);
   --yellow-shade1: rgb(230, 230, 14);
@@ -16,20 +21,9 @@
 
 body {
   display: flex;
-  margin-top: 50px;
+  margin-top: 100px;
   justify-content: center;
   background-color: var(--white);
-}
-
-button {
-  width: 75px;
-  cursor: pointer;
-  box-shadow: 0px 0px 2px var(--blue-shade1);
-  border: none;
-  outline: none;
-  padding: 6px;
-  border-radius: 5px;
-  color: var(--cocoa-shade);
 }
 
 #header {
@@ -40,13 +34,14 @@ button {
   justify-content: space-between;
 }
 
-#header button {
-  background-color:var(--black-shade1);
-}
-
 #container {
   width: 770px;
 }
+/*
+#container {
+  display: flexbox;
+  flex: 7;
+}*/
 
 #weekdays {
   width: 100%;
@@ -65,6 +60,17 @@ button {
   display: flex;
   flex-wrap: wrap;
 }
+/*
+#calendar {
+  display: grid;
+  padding: 10px;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  width: 100%;
+  margin: auto;
+}
+*/
+/* grid-template-rows: length(40px);*/
 
 .day {
   width: 100px;
@@ -93,62 +99,6 @@ button {
 
 .day + #currentDay {
   background-color: var(--dark-blue);
-}
-.event {
-  font-size: 10px;
-  padding: 3px;
-  background-color: var(--caramel);
-  color: var(--white);
-  border-radius: 5px;
-  max-height: 55px;
-  overflow: hidden;
-}
-
-#newEventModal, #deleteEventModal {
-  display: none;
-  z-index: 20;
-  padding: 25px;
-  background-color: var(--gray-shade2);
-  box-shadow: 0px 0px 3px var(--gray-shade1);
-  border-radius: 5px;
-  width: 350px;
-  top: 100px;
-  left: calc(50% - 175px);
-  position: absolute;
-  font-family: sans-serif;
-}
-#eventTitleInput {
-  padding: 10px;
-  width: 100%;
-  box-sizing: border-box;
-  margin-bottom: 25px;
-  border-radius: 3px;
-  outline: none;
-  border: none;
-  box-shadow: 0px 0px 3px var(--gray-shade1);
-}
-#eventTitleInput.error {
-  border: 2px solid var(--red);
-}
-#cancelButton, #deleteButton {
-  background-color: var(--red);
-}
-#saveButton, #closeButton {
-  background-color: var(--dark-blue);
-}
-#eventText {
-  font-size: 16px;
-}
-
-#modalBackDrop {
-  display: none;
-  top: 0px;
-  left: 0px;
-  z-index: 10;
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  background-color: var(--black-shade1);
 }
 
 
