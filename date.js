@@ -1,4 +1,5 @@
 import { openModal } from "./modals.js";
+import { getAdvice } from "./api.js";
 
 // Global variable that keeps track of the month upon clicking the previous and back button
 globalThis.monthCounter  = 0;
@@ -57,6 +58,9 @@ export function loadCalendar () {
   // this helps in clearing out the squares or everything inside the 
   // calendar div when the buttons event listeners are triggered
   calendar.innerHTML = "";
+
+  // load API
+  getAdvice();
 
   // Looping through all padding days and days of the month and render them as squares
   for(let i = 1; i <= paddingDays + daysInMonth; i++) {
