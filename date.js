@@ -74,17 +74,20 @@ export function loadCalendar () {
 
     // Logic that determines whether we render a padding day or day square
     if(i > paddingDays) {
+      
       // setting the day number value to the inside of the div
       // this number value is rendered in the day square
       daySquare.innerText = i - paddingDays;
 
       const eventForDay = events.find(event => event.clickedDate === clickedDateString);
 
+      // add a class to the present day making it conspicuous from the rest of the days
       if (i - paddingDays === day && monthCounter === 0) {
-        //add a class to the present day making it conspicuous from the rest of the days
         daySquare.id = 'currentDay';
       }
-      //if there's an event create a div to hold the event text inside the day square
+
+      // if there's an event create a div to hold the event text inside 
+      // the day square and actually display this on the day square
       if (eventForDay) {
         const eventDiv = document.createElement('div');
         eventDiv.classList.add('event');
