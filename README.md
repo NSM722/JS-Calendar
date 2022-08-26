@@ -1,7 +1,14 @@
 # Dynamic Vanilla JavaScript and CSS Calendar
 This is an interactive calendar that highlights the current day of the month in a different background color from the rest of the days of the month.
-When one clicks on the previous or next button, the calendar loads the month correctly and additionally loads different advices from an API rendered at the top of the calendar. One also has the ability to add/delete appointments/events on particular day(s). Additionally, the days highlighted in grey('padding days') are days of the previous month that reflect in the first week of the selected month.
-Under the hood, I worked on the concept of:
+
+When one clicks on the previous or next button, the calendar loads the month correctly and additionally loads different advices from an API rendered at the top of the calendar. 
+
+One also has the ability to add/delete appointments/events on particular day(s). 
+
+Additionally, the days highlighted in grey('padding days') are days of the previous month that reflect in the first week of the selected month.
+
+Under the hood, I worked on the following concepts:
+
 * using global CSS variables
 * CSS module imports
 * JS files imports
