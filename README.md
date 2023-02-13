@@ -16,9 +16,10 @@ Under the hood, I worked on the following concepts:
 * Use of the Date-API
 * Adding/Deleting event modals
 * Using the WEB localStorage as a Database
-Below is a snippet of the calendar:
 
-<img width="485" alt="JS and CSS Calendar" src="https://user-images.githubusercontent.com/83452606/181231551-00f07aac-e7d3-4486-bed6-53d135621e6c.png">
+Here's a link to the [Live Demo](https://incomparable-longma-814282.netlify.app/ "JS calendar")
+
+<img width="100%" alt="JS and CSS Calendar" src="https://user-images.githubusercontent.com/83452606/181231551-00f07aac-e7d3-4486-bed6-53d135621e6c.png">
 
 ---
 
